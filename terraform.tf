@@ -8,8 +8,11 @@
 # These will be declared in the terraform document which consumes the module.
 
 terraform {
-  required_version = ">1.2.0"
+  required_version = ">1.12.0"
   required_providers {
-    # Add your required providers here.
+    nomad = {
+      source  = "hashicorp/nomad"
+      version = "2.5.0" # Add your required providers here.
+    }
   }
 }
