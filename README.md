@@ -58,7 +58,9 @@ examples themselves
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_nomad"></a> [nomad](#provider\_nomad) | 2.5.0 |
 
 ## Modules
 
@@ -66,7 +68,9 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [nomad_namespace.ops](https://registry.terraform.io/providers/hashicorp/nomad/2.5.0/docs/resources/namespace) | resource |
 
 ## Inputs
 
