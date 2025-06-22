@@ -19,7 +19,9 @@
 resource "nomad_namespace" "ops" {
   name        = "ops"
   description = "Cluster Control Plane namespace"
-  # quota = nomad_quota_specification.ops.name
+  capabilities {
+    enabled_task_drivers = ["raw_exec", "docker", "exec"]
+  }
 }
 
 # Policies
@@ -29,4 +31,23 @@ resource "nomad_namespace" "ops" {
 # Dynamic Host Volumes
 
 
+
 # System jobs
+data "nomad_datacenters" "deployed" {
+}
+
+data "local_file" "alloy_config" {
+  filename = "${path.module}/jobspec/templates/alloy.config"
+}
+
+resource "nomad_job" "agent_alloy" {
+  jobspec = templatefile("${path.module}/jobspec/alloy.nomad.hcl.tmpl", {
+    alloy_config  = data.local_file.alloy_config.content,
+    alloy_version = var.alloy_version,
+    namespace     = nomad_namespace.ops.name,
+    datacenters   = data.nomad_datacenters.deployed.datacenters
+  })
+  hcl2 {
+    allow_fs = true
+  }
+}

@@ -54,12 +54,14 @@ examples themselves
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >1.12.0 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
 | <a name="requirement_nomad"></a> [nomad](#requirement\_nomad) | 2.5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
+| <a name="provider_local"></a> [local](#provider\_local) | 2.2.3 |
 | <a name="provider_nomad"></a> [nomad](#provider\_nomad) | 2.5.0 |
 
 ## Modules
@@ -70,11 +72,16 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [nomad_job.agent_alloy](https://registry.terraform.io/providers/hashicorp/nomad/2.5.0/docs/resources/job) | resource |
 | [nomad_namespace.ops](https://registry.terraform.io/providers/hashicorp/nomad/2.5.0/docs/resources/namespace) | resource |
+| [local_file.alloy_config](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/data-sources/file) | data source |
+| [nomad_datacenters.deployed](https://registry.terraform.io/providers/hashicorp/nomad/2.5.0/docs/data-sources/datacenters) | data source |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_alloy_version"></a> [alloy\_version](#input\_alloy\_version) | Version of Grafana Alloy to be used in monitoring | `string` | `"1.8.3"` | no |
 
 ## Outputs
 

@@ -14,5 +14,9 @@ terraform {
       source  = "hashicorp/nomad"
       version = "2.5.0" # Add your required providers here.
     }
+    local = {
+      source  = "hashicorp/local"
+      version = "2.2.3"
+    }
   }
 }
